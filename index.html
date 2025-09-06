@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nora Zhu - AI & Full-Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .full-width-container {
+            width: 100%;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #fff;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        /* If you want to use a real photo, uncomment this CSS and add your image */
+        /*
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        */
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        nav ul li {
+            margin: 0 30px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #667eea;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about-content {
+            width: 100%;
+            text-align: left;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .about-text {
+            max-width: none;
+            margin-bottom: 30px;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 .icon {
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            gap: 40px;
+            width: 100%;
+        }
+
+        .experience-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .experience-card h3 {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .experience-card .company {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .experience-card .date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card ul li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-card ul li:before {
+            content: "▸";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 40px;
+            width: 100%;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .project-content p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container, .full-width-container {
+                padding: 0 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            nav ul li {
+                margin: 0;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            section {
+                padding: 50px 0;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!-- To use your own photo, replace the emoji with: <img src="your-photo.jpg" alt="Nora Zhu"> -->
+            <div class="profile-img">👩‍💻</div>
+            <h1>Nora Zhu</h1>
+            <p class="subtitle">AI & Full-Stack Developer</p>
+            <div class="contact-links">
+                <a href="mailto:norazhu70@gmail.com">📧 Email</a>
+                <a href="https://www.linkedin.com/in/nora-zhu-66b24a2b8">💼 LinkedIn</a>
+                <a href="https://github.com/norazhu">🔗 GitHub</a>
+                <a href="tel:+61481861753">📱 Phone</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p class="about-text">I possess foundational knowledge in programming, data analysis, artificial intelligence (AI), cloud computing, and full-stack development, with hands-on experience in Python, SQL, front-end (HTML, CSS, React), and back-end communication. I'm capable of building and optimizing systems in both local and cloud environments, with a strong interest in leveraging cloud platforms such as AWS and Microsoft Azure.</p>
+                <p class="about-text">Experienced in integrating AI models with full-stack solutions and applying them to real-world scenarios, such as developing a voice-controlled robotic arm system with end-to-end implementation from front-end interface and back-end communication to hardware interaction. Particularly interested in machine learning, computer vision, automation, and exploring the potential of intelligent systems in practical applications.</p>
+                <p class="about-text">A collaborative team player with a proactive, solution-oriented mindset, known for quickly adapting to new tools and technologies to meet project requirements. Passionate about contributing to meaningful, technology-driven full-stack and AI projects while building a strong foundation as a future IT professional.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><span class="icon">💻</span> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">HTML/CSS</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span class="icon">🤖</span> AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">LLMs Integration</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">Ollama</span>
+                        <span class="skill-tag">Open WebUI</span>
+                        <span class="skill-tag">AI Agents</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span class="icon">☁️</span> Cloud & Enterprise</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Microsoft Azure</span>
+                        <span class="skill-tag">SAP ERP</span>
+                        <span class="skill-tag">Git</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><span class="icon">🔧</span> Full-Stack & Systems</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Full-Stack Development</span>
+                        <span class="skill-tag">API Integration</span>
+                        <span class="skill-tag">System Integration</span>
+                        <span class="skill-tag">Data Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>AI Team Intern</h3>
+                    <div class="company">La Trobe University</div>
+                    <div class="date">August 2024 – Present</div>
+                    <ul>
+                        <li>Deploying Open WebUI locally and integrating small models via Ollama, alongside API-based large models</li>
+                        <li>Building and configuring AI agents for practical use cases, contributing to university-level projects</li>
+                        <li>Participating in the implementation of AI-driven solutions within the institution's operational environment</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Robotic Arm Control with Large AI Model</h3>
+                    <div class="company">Short-Term Internship</div>
+                    <div class="date">December 2024 – February 2025</div>
+                    <ul>
+                        <li>Led full-stack and AI integration, covering both front-end interface design and back-end communication to establish seamless connection between robotic arm and personal computer</li>
+                        <li>Leveraged AI's LLMs API to configure local environment and connect to the robotic arm's terminal</li>
+                        <li>Utilized LLMs to decompose complex natural language into simple, executable commands, enabling real-time task interpretation and execution</li>
+                        <li>Enhanced practical skills in AI-driven system integration, fuelling passion for merging AI with physical systems</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>IT Operations Engineer</h3>
+                    <div class="company">Lenovo (Beijing, China)</div>
+                    <div class="date">August 2020 – January 2021</div>
+                    <ul>
+                        <li>Assisted with SAP ERP order processing, helping to identify and address issues to support smooth operations</li>
+                        <li>Provided daily support for SAP-related order and data accuracy tasks, contributing to reliable system performance</li>
+                        <li>Worked alongside supply chain and IT teams to help maintain order accuracy and enhance workflow efficiency</li>
+                    </ul>
+                </div>
+
+                <div class="experience-card">
+                    <h3>Customer Service & Marketing Assistant</h3>
+                    <div class="company">Beijing Language and Culture University</div>
+                    <div class="date">May 2021 – January 2024</div>
+                    <ul>
+                        <li>Enhanced Digital Engagement: Managed digital platforms and analysed user engagement data to optimize service delivery and content</li>
+                        <li>Improved User Experience: Supported technical integration of new tools, improving student interactions and operational efficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🤖 Voice-Controlled Robotic Arm</div>
+                    <div class="project-content">
+                        <h3>AI-Integrated Robotic Control System</h3>
+                        <p>Developed an end-to-end voice-controlled robotic arm system that integrates AI language models with hardware control, enabling natural language commands to be translated into robotic actions.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">LLMs API</span>
+                            <span class="tech-tag">Full-Stack</span>
+                            <span class="tech-tag">Hardware Integration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">🔗 View Details</a>
+                            <a href="#">📁 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">🧠 AI Agent Platform</div>
+                    <div class="project-content">
+                        <h3>Local AI Model Deployment</h3>
+                        <p>Built and configured AI agents using Open WebUI and Ollama for local model deployment, integrated with API-based large models for university research projects.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Ollama</span>
+                            <span class="tech-tag">Open WebUI</span>
+                            <span class="tech-tag">AI Agents</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">🔗 View Details</a>
+                            <a href="#">📁 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">📊 Data Analytics Dashboard</div>
+                    <div class="project-content">
+                        <h3>Enterprise Data Visualization</h3>
+                        <p>Created comprehensive data analytics platform for user engagement analysis, integrating multiple data sources to optimize service delivery and operational efficiency.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Visualization</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#">🔗 View Details</a>
+                            <a href="#">📁 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 30px;">Get In Touch</h2>
+            <p>I'm always interested in discussing new opportunities and innovative projects in AI and full-stack development.</p>
+            <br>
+            <div class="contact-links">
+                <a href="mailto:norazhu70@gmail.com">📧 norazhu70@gmail.com</a>
+                <a href="https://www.linkedin.com/in/nora-zhu-66b24a2b8">💼 LinkedIn</a>
+                <a href="https://github.com/norazhu">🔗 GitHub</a>
+            </div>
+            <br><br>
+            <p>📍 Bendigo, VIC 3550, Australia</p>
+            <br>
+            <p>&copy; 2024 Nora Zhu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple scroll animation
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.project-card, .skill-category, .experience-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const cardVisible = 150;
+                
+                if (cardTop < window.innerHeight - cardVisible) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize animation states
+        document.querySelectorAll('.project-card, .skill-category, .experience-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+    </script>
+</body>
+</html>
